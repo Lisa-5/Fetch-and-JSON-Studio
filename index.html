@@ -26,8 +26,9 @@
                 </ul>
               </div>
               <img class="avatar" src="${json[i].picture}">`
-              //astronautArray.push(astronautProfile);
-              container.innerHTML = `${astronautProfile}`
+              astronautArray.push(astronautProfile);
+              console.log(astronautArray);
+              container.innerHTML = `${astronautArray[i]}`
              }
           });
         });
