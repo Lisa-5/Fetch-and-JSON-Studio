@@ -6,16 +6,17 @@
     <title>Astronauts</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script>
-      window.addEventListener("load", function(){
+      window.addEventListener('load', function () {
         fetch(
           'https://handlers.education.launchcode.org/static/astronauts.json'
         ).then(function (response) {
           response.json().then(function (json) {
-             console.log(json);
-             const container = document.getElementById('container');
-             let astronautArray = [];
-            for (i = 0; i < json.length; i++) { 
-              let astronautProfile = `
+            //console.log(json);
+            let astronautProfile = '';
+            const container = document.getElementById('container');
+            for (i = 0; i < json.length; i++) {
+              astronautProfile +=  
+                `
               <div class="astronaut">
                 <div class="bio">
                 <h3>${json[i].firstName} ${json[i].lastName}</h3>
@@ -25,16 +26,17 @@
                   <li>Skills: ${json[i].skills}<li>
                 </ul>
               </div>
-              <img class="avatar" src="${json[i].picture}">`
-              astronautArray.push(astronautProfile);
-              console.log(astronautArray);
-              container.innerHTML = `${astronautArray[i]}`
-             }
+              <img class="avatar" src="${json[i].picture}">`;
+
+              // let astronautArray = [];
+              // astronauts = astronautArray.push(astronautProfile);
+            }
+            container.innerHTML = `${astronautProfile}`;
           });
         });
       });
     </script>
-    </head>
+  </head>
   <body>
     <script src="script.js"></script>
     <h1>Astronauts</h1>
